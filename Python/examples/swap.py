@@ -34,6 +34,8 @@
 # %%
 import QuantLib as ql
 
+ru = ql.RUBCurrency()
+
 # %% [markdown]
 # ### Global data
 

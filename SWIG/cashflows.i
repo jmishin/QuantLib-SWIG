@@ -426,7 +426,15 @@ using QuantLib::ArithmeticAveragedOvernightIndexedCouponPricer;
 using QuantLib::BlackAveragingOvernightIndexedCouponPricer;
 using QuantLib::CompoundingMultipleResetsPricer;
 using QuantLib::AveragingMultipleResetsPricer;
+using QuantLib::ArithmeticAveragedLookbackOvernightIndexedCouponPricer;
 %}
+
+%shared_ptr(ArithmeticAveragedLookbackOvernightIndexedCouponPricer)
+class ArithmeticAveragedLookbackOvernightIndexedCouponPricer 
+    : public ArithmeticAveragedOvernightIndexedCouponPricer {
+  public:
+    ArithmeticAveragedLookbackOvernightIndexedCouponPricer(Natural lookbackDays);
+};
 
 %shared_ptr(IborCouponPricer)
 class IborCouponPricer : public FloatingRateCouponPricer {

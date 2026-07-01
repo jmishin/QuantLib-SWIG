@@ -30,8 +30,8 @@ def define_macros():
 
     define_macros = []
 
-    # if py_limited_api():
-    #     define_macros += [("Py_LIMITED_API", "0x030D0000")]ы
+    if py_limited_api():
+        define_macros += [("Py_LIMITED_API", "0x030D0000")]
 
     if free_threading():
         define_macros += [("SWIGPYTHON_NOGIL", None), ("Py_GIL_DISABLED", None)]

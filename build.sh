@@ -8,10 +8,9 @@ export PATH="${PATH}:${HOME}/local/bin"
             CXXFLAGS='-O2 -std=c++17 -stdlib=libc++ -mmacosx-version-min=10.9 -I/opt/homebrew/include/' \
             LDFLAGS='-stdlib=libc++ -mmacosx-version-min=10.9'
 
-code . --locale=en
+make -j14
+source ../venv/bin/activate
+pip install --force-reinstall Python/dist/quantlib-*.whl
+python -c "import QuantLib as ql; print('Успешно! Версия:', ql.__version__)"
 
 
-#export PATH="$PATH:/path/to/your/directory"
-#cmake -DCMAKE_INSTALL_PREFIX=${HOME}/local/ ..
-#cmake --build . -j14 
-#cmake --install . 

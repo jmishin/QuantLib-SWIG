@@ -8,6 +8,7 @@ export PATH="${PATH}:${HOME}/local/bin"
             CXXFLAGS='-O2 -std=c++17 -stdlib=libc++ -mmacosx-version-min=10.9 -I/opt/homebrew/include/' \
             LDFLAGS='-stdlib=libc++ -mmacosx-version-min=10.9'
 
+cd Python
 make -j14
 source ../venv/bin/activate
 pip install --force-reinstall Python/dist/quantlib-*.whl

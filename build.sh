@@ -10,8 +10,8 @@ export PATH="${PATH}:${HOME}/local/bin"
 
 cd Python
 make -j14
-source ../venv/bin/activate
-pip install --force-reinstall Python/dist/quantlib-*.whl
+source ../../venv/bin/activate
+pip install --force-reinstall dist/quantlib-*.whl
 python -c "import QuantLib as ql; print('Успешно! Версия:', ql.__version__)"
 
 

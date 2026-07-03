@@ -1,6 +1,6 @@
 #!/bin/sh
 #/opt/homebrew/bin/python3.13 -m venv ../venv
-source ../venv/bin/activate
+source ../venv39/bin/activate
 pip install setuptools build tox pytest
 export PATH="${PATH}:${HOME}/local/bin"
 ./autogen.sh

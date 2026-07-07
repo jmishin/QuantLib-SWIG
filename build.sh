@@ -9,9 +9,10 @@ export PATH="${PATH}:${HOME}/local/bin"
             LDFLAGS='-stdlib=libc++ -mmacosx-version-min=10.9'
 
 cd Python
+rm -rf dist
 make -j14
 source ../../venv/bin/activate
-pip install --force-reinstall dist/quantlib-*.whl
-python -c "import QuantLib as ql; print('Успешно! Версия:', ql.__version__)"
+pip install --force-reinstall dist/quantlib_vega-*.whl
+DYLD_LIBRARY_PATH=$HOME/src/QuantLib/build/debug/ql python -c "import QuantLib as ql; print('Успешно! Версия:', ql.__version__)"
 
 

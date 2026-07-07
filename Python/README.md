@@ -1,33 +1,35 @@
+# QuantLib-vega
 
-The C++ wrappers for the QuantLib-Python extension module are created
-by means of SWIG (Simplified Wrapper and Interface Generator)
-available from <http://www.swig.org/>; the latest version is suggested.
+An extension of the QuantLib-SWIG Python bindings, optimized and distributed under the name **QuantLib-vega**.
 
-Building the wrappers requires the `setuptools` and `build` packages;
-both can be installed (preferably in a virtual environment) by means
-of `pip install`.
+This project is a fork of the official [QuantLib-SWIG](https://github.com) repository. It provides Python wrappers for the QuantLib quantitative finance library.
 
-Generating the wrappers is not required if you are using a distributed
-tarball. If you're building from a Git checkout, instead, use the
-command `swig.cmd` on Windows or `make` on other platforms.  Running
-`make` also builds the wrappers as a wheel; on Windows, this requires
-the explicit command `python -m build --wheel` instead.
+## Installation
 
-The build step requires that the QuantLib headers and library can be
-found by the compiler. On Unix-like platforms, this requires that
-`quantlib-config` is in your path. On the Windows platform, instead,
-it requires you to define a `QL_DIR` environment variable pointing to
-your QuantLib directory (e.g., `C:\Lib\QuantLib`.) Another environment
-variable `QL_DEBUG` on Windows should be set to `TRUE` if you are building
-against a debug version of QuantLib with the objective to
-debug the library called from Python. On Unix-like platforms, appropriate flags
-can be setup in `CXXFLAGS` and `LDFLAGS`. If boost is required for compilation,
-it can be set via the environment variable `INCLUDE`.
+Install the package via pip:
 
+```bash
+pip install QuantLib-vega
+```
 
-Once built, the resulting wheel can be installed with `pip`.
+## Usage
 
-Finally, testing the wheel requires `tox`, also available via
-`pip install`.  Once available, running `tox run` will run the
-test suite.
+You can import and use this package exactly like the original `QuantLib` library:
 
+```python
+import QuantLib as ql
+
+# Example: Create a date
+date = ql.Date(7, 7, 2026)
+print(f"Date: {date}")
+```
+
+## About the Fork
+
+**QuantLib-vega** is maintained independently from the core QuantLib development team. While it retains full compatibility with the original SWIG bindings, this distribution may include specific patches, configurations, or optimizations tailored for vega-specific workflows.
+
+## License
+
+This project is licensed under the **QuantLib License**. 
+
+QuantLib is Open Source and its license is a slightly modified version of the BSD License. You can use, modify, and distribute this software for both commercial and non-commercial purposes.

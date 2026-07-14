@@ -152,7 +152,8 @@ class FixedRateCoupon : public Coupon {
                     const Date& startDate, const Date& endDate,
                     const Date& refPeriodStart = Date(),
                     const Date& refPeriodEnd = Date(),
-                    const Date& exCouponDate = Date());
+                    const Date& exCouponDate = Date(),
+                    const Rounding& paymentRounding = Rounding());
     InterestRate interestRate() const;
 };
 

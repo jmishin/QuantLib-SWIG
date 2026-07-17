@@ -457,7 +457,7 @@ class BlackIborCouponPricer : public IborCouponPricer {
                           const TimingAdjustment timingAdjustment = Black76,
                           const Handle<Quote> correlation =
                                     Handle<Quote>(ext::shared_ptr<Quote>(new SimpleQuote(1.0))),
-                          ext::optional<bool> useIndexedCoupon = ext::nullopt);
+                          std::optional<bool> useIndexedCoupon = std::nullopt);
 };
 
 %shared_ptr(CompoundingOvernightIndexedCouponPricer)
@@ -719,7 +719,7 @@ class LognormalCmsSpreadPricer : public CmsSpreadCouponPricer {
             const Handle<YieldTermStructure> &couponDiscountCurve =
                 Handle<YieldTermStructure>(),
             const Size IntegrationPoints = 16,
-            const ext::optional<VolatilityType> volatilityType = ext::nullopt,
+            const std::optional<VolatilityType> volatilityType = std::nullopt,
             const Real shift1 = Null<Real>(), const Real shift2 = Null<Real>());
     Real swapletPrice() const;
     Rate swapletRate() const;
@@ -884,7 +884,7 @@ Leg _IborLeg(const std::vector<Real>& nominals,
              bool exCouponEndOfMonth = false,
              const Calendar& paymentCalendar = Calendar(),
              const Integer paymentLag = 0,
-             ext::optional<bool> withIndexedCoupons = ext::nullopt,
+             std::optional<bool> withIndexedCoupons = std::nullopt,
              BusinessDayConvention fixingConvention = Preceding) {
     return QuantLib::IborLeg(schedule, index)
         .withNotionals(nominals)
@@ -927,7 +927,7 @@ Leg _IborLeg(const std::vector<Real>& nominals,
              bool exCouponEndOfMonth = false,
              const Calendar& paymentCalendar = Calendar(),
              Integer paymentLag = 0,
-             ext::optional<bool> withIndexedCoupons = ext::nullopt);
+             std::optional<bool> withIndexedCoupons = std::nullopt);
 
 %{
 Leg _OvernightLeg(const std::vector<Real>& nominals,
@@ -951,7 +951,7 @@ Leg _OvernightLeg(const std::vector<Real>& nominals,
                   bool inArrears = true,
                   bool nakedOption = false,
                   const std::vector<Date>& paymentDates = {},
-                  ext::optional<Integer> roundingPrecision = ext::nullopt) {
+                  std::optional<Integer> roundingPrecision = std::nullopt) {
     auto leg = QuantLib::OvernightLeg(schedule, index)
         .withNotionals(nominals)
         .withPaymentDayCounter(paymentDayCounter)
@@ -1004,7 +1004,7 @@ Leg _OvernightLeg(const std::vector<Real>& nominals,
                   bool inArrears = true,
                   bool nakedOption = false,
                   const std::vector<Date>& paymentDates = {},
-                  ext::optional<Integer> roundingPrecision = ext::nullopt);
+                  std::optional<Integer> roundingPrecision = std::nullopt);
 
 %{
 Leg _CmsLeg(const std::vector<Real>& nominals,
@@ -1374,7 +1374,7 @@ class CashFlows {
                     Spread zSpread,
                     Compounding compounding,
                     Frequency frequency,
-                    ext::optional<bool> includeSettlementDateFlows = ext::nullopt,
+                    std::optional<bool> includeSettlementDateFlows = std::nullopt,
                     const Date& settlementDate = Date(),
                     const Date& npvDate = Date());
 
@@ -1513,7 +1513,7 @@ class CashFlows {
              const ext::shared_ptr<YieldTermStructure>&,
              Compounding compounding,
              Frequency frequency,
-             ext::optional<bool> includeSettlementDateFlows = ext::nullopt,
+             std::optional<bool> includeSettlementDateFlows = std::nullopt,
              Date settlementDate = Date(),
              Date npvDate = Date(),
              Real accuracy = 1.0e-10,

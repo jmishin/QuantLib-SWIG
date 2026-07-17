@@ -64,7 +64,7 @@ jobs:
         cd ../tarballs && ../quantlib/tools/tgz2zip QuantLib-*.tar.gz && ls -lh
     - uses: actions/checkout@v7
       with:
-        repository: jmishin/QuantLib-vega
+        repository: jmishin/QuantLib-SWIG
         ref: ${{ env.QLSWIGREF }}
         path: quantlib-swig
         fetch-depth: 0

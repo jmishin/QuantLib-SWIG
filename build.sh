@@ -14,7 +14,14 @@ rm -rf dist
 make -j14
 source ../../venv/bin/activate
 pip install --force-reinstall dist/quantlib_vega-*.whl
-DYLD_LIBRARY_PATH=$HOME/src/QuantLib/build/debug/ql python -c "import QuantLib as ql; print('Успешно! Версия:', ql.__version__)"
+
+
+rm -rf ~/local
+mkdir -p ~/local/lib
+cd ~/local/lib
+ln -fs ~/src/QuantLib/build/debug/ql/libQuantLib.dylib libQuantLib.dylib
+ln -fs libQuantLib.dylib libQuantLib.0.dylib
+python -c "import QuantLib as ql; print('Успешно! Версия:', ql.__version__)"
 
 
 

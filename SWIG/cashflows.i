@@ -152,7 +152,8 @@ class FixedRateCoupon : public Coupon {
                     const Date& startDate, const Date& endDate,
                     const Date& refPeriodStart = Date(),
                     const Date& refPeriodEnd = Date(),
-                    const Date& exCouponDate = Date());
+                    const Date& exCouponDate = Date(),
+                    const Rounding& paymentRounding = Rounding());
     InterestRate interestRate() const;
 };
 
@@ -277,7 +278,8 @@ class OvernightIndexedCoupon : public FloatingRateCoupon {
                 const Date& rateComputationStartDate = Date(),
                 const Date& rateComputationEndDate = Date(),
                 const Date& exCouponDate = Date(),
-                ext::optional<Integer> roundingPrecision = ext::nullopt);
+                ext::optional<Integer> roundingPrecision = ext::nullopt,
+                const Rounding& paymentRounding = Rounding());
     const std::vector<Date>& fixingDates() const;
     const std::vector<Date>& interestDates() const;
     const std::vector<Time>& dt() const;
